@@ -1,0 +1,177 @@
+:root {
+  --dark-color: #413e3e;
+  --noise-texture: url(https://i.gyazo.com/a26366e538851a5c569ff648e99b7fd4.png);
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--dark-color);
+  background-image: var(--noise-texture);
+  background-blend-mode: overlay;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.search {
+  margin-top: 1rem;
+  width: 90%;
+  border-radius: 8px;
+  padding: 1rem 0 1rem 0;
+  opacity: 50%;
+  margin: 0.5rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+input[type="text"] {
+  border-bottom: 3px solid #000000; /* 10px solid black border on bottom */
+  border-right: 3px solid #000000;
+  border-top: 0.5px solid #000000;
+  border-left: 0.5px solid #000000;
+  min-height: 2rem;
+  border-radius: 4px; /* Rounded corners for input */
+  transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+  background-color: var(--dark-color);
+  color: white;
+  opacity: 100%;
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+input[type="text"]:hover {
+  cursor: pointer;
+  transform: translateY(-5px); /* Moves the element up */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for the effect */
+}
+.search-button {
+  border-bottom: 3px solid #000000; /* 10px solid black border on bottom */
+  border-right: 3px solid #000000;
+  border-top: 0.5px solid #000000;
+  border-left: 0.5px solid #000000;
+  border-radius: 4px; /* Rounded corners for input */
+  background-color: var(--dark-color);
+  color: white;
+  opacity: 70%;
+  min-height: 2.3rem;
+  font-size: 1.5rem;
+}
+.search-button:hover {
+  cursor: pointer;
+  transform: translateY(-5px); /* Moves the element up */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for the effect */
+}
+.background {
+  height: 80vh;
+  width: 75%;
+  margin: 0 2% 2% 2%;
+  padding-right: 5%;
+  background-image: url("/src/default-background.jpg"); /* Default background image for body */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for the effect */
+  border-radius: 8px; /* Rounded corners */
+  display: flex;
+  align-items: center;
+  border-bottom: 6px solid #000000; /* 10px solid black border on bottom */
+  border-right: 6px solid #000000;
+  border-top: 0.5px solid #000000;
+  border-left: 0.5px solid #000000;
+}
+
+.floating-container {
+  position: fixed; /* Fixed position to make it float on the body */
+  right: -5%; /* Start position from the right of the viewport */
+  bottom: 1%;
+  background-color: transparent; /* Transparent background to show only items */
+  color: white; /* Text color */
+  padding: 5px; /* Padding inside the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for floating effect */
+  z-index: 1000; /* Ensure it sits on top of other content */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 80%;
+  width: 20%;
+  transition: right 0.3s ease; /* Smooth transition for movement */
+}
+
+.floating-container:hover {
+  right: 2%; /* Move container into view when hovered */
+  border-bottom: 6px solid #000000; /* 10px solid black border on bottom */
+  border-right: 6px solid #000000;
+  border-top: 0.5px solid #000000;
+  border-left: 0.5px solid #000000;
+}
+
+.flex-items {
+  position: relative;
+  margin: 0.5rem;
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Ensure pseudo-element stays within bounds */
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  border-bottom: 6px solid #000000; /* 10px solid black border on bottom */
+  border-right: 6px solid #000000;
+  border-top: 0.5px solid #000000;
+  border-left: 0.5px solid #000000;
+}
+
+.flex-items::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Adjust color and opacity as needed */
+  transition: background-color 1s ease;
+  z-index: 1;
+}
+
+.flex-items:hover {
+  transform: scale(1.2) translate(-10px, -10px);
+  z-index: 1400;
+}
+
+.flex-items:hover::before {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* Change color for transition effect */
+}
+
+.one {
+  background-image: url("/src/image1.jpg"); /* Background image for item one */
+  transition: background-image;
+}
+
+.two {
+  background-image: url("/src/image2.jpg"); /* Background image for item two */
+}
+
+.three {
+  background-image: url("/src/image3.jpg"); /* Background image for item three */
+}
+
+@media (max-width: 423px) {
+  input[type="text"],
+  .search-button {
+    font-size: 1rem;
+  }
+}
